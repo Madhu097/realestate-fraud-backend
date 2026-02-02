@@ -103,13 +103,13 @@ app.include_router(
 # HEALTH CHECK ENDPOINTS
 # ============================================================
 
-@app.get(
+@app.api_route(
     "/",
+    methods=["GET", "HEAD"],
     tags=["Health Check"],
     summary="Root endpoint",
     description="Simple root endpoint for uptime monitoring"
 )
-@app.head("/")
 async def root():
     """
     Root endpoint - Simple response for monitoring services
@@ -125,14 +125,14 @@ async def root():
     }
 
 
-@app.get(
+@app.api_route(
     "/api",
+    methods=["GET", "HEAD"],
     response_model=HealthCheckResponse,
     tags=["Health Check"],
     summary="API health check",
     description="Returns the basic health status of the API"
 )
-@app.head("/api")
 async def api_health_check() -> HealthCheckResponse:
     """
     API health check endpoint
@@ -149,13 +149,13 @@ async def api_health_check() -> HealthCheckResponse:
     )
 
 
-@app.get(
+@app.api_route(
     "/health",
+    methods=["GET", "HEAD"],
     response_model=DetailedHealthCheckResponse,
     tags=["Health Check"],
     summary="Detailed health check",
     description="Returns detailed health status with available endpoints"
-@app.head("/health")
 )
 async def detailed_health_check() -> DetailedHealthCheckResponse:
     """
