@@ -1,33 +1,33 @@
 # Minimal Backend Dependencies for Free Deployment
-# Python 3.11
+# Python 3.11 - Using latest versions with pre-built wheels
 
 # ============================================================
 # CORE FRAMEWORK (Required)
 # ============================================================
-fastapi==0.109.0
-uvicorn==0.27.0
-python-multipart==0.0.6
+fastapi==0.115.0
+uvicorn==0.32.0
+python-multipart==0.0.12
 
-# Pydantic for data validation
-pydantic==2.5.3
-pydantic-settings==2.1.0
+# Pydantic for data validation (latest with wheels)
+pydantic==2.9.2
+pydantic-settings==2.5.2
 
 # ============================================================
 # DATABASE (Required)
 # ============================================================
-sqlalchemy==2.0.25
+sqlalchemy==2.0.36
 
 # ============================================================
 # ENVIRONMENT & CONFIGURATION (Required)
 # ============================================================
-python-dotenv==1.0.0
+python-dotenv==1.0.1
 
 # ============================================================
 # HTTP & API CLIENTS (Required)
 # ============================================================
-httpx==0.26.0
+httpx==0.27.2
 
 # ============================================================
 # UTILITIES (Required)
 # ============================================================
-aiofiles==23.2.1
+aiofiles==24.1.0
