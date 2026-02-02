@@ -187,8 +187,8 @@ class Settings(BaseSettings):
     # Database Settings
     database_url: str = AppConstants.DATABASE_URL
     
-    # CORS Settings
-    cors_origins: List[str] = AppConstants.CORS_ORIGINS
+    # CORS Settings - Allow string or list for flexibility
+    cors_origins: str | List[str] = AppConstants.CORS_ORIGINS
     
     # File Upload Settings
     upload_dir: str = AppConstants.UPLOAD_DIR
@@ -202,6 +202,16 @@ class Settings(BaseSettings):
         "env_file_encoding": "utf-8",
         "extra": "ignore"  # Ignore extra fields
     }
+    
+    @property
+    def get_cors_origins(self) -> List[str]:
+        """Convert CORS origins to list format"""
+        if isinstance(self.cors_origins, str):
+            if self.cors_origins == "*":
+                return ["*"]
+            # Split by comma if multiple origins
+            return [origin.strip() for origin in self.cors_origins.split(",")]
+        return self.cors_origins
 
 
 # Create settings instance
