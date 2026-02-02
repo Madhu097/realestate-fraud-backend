@@ -105,14 +105,34 @@ app.include_router(
 
 @app.get(
     "/",
+    tags=["Health Check"],
+    summary="Root endpoint",
+    description="Simple root endpoint for uptime monitoring"
+)
+async def root():
+    """
+    Root endpoint - Simple response for monitoring services
+    
+    Returns:
+        dict: Simple status message
+    """
+    return {
+        "status": "ok",
+        "service": "Real Estate Fraud Detection API",
+        "message": "Service is running"
+    }
+
+
+@app.get(
+    "/api",
     response_model=HealthCheckResponse,
     tags=["Health Check"],
-    summary="Basic health check",
+    summary="API health check",
     description="Returns the basic health status of the API"
 )
-async def root_health_check() -> HealthCheckResponse:
+async def api_health_check() -> HealthCheckResponse:
     """
-    Basic health check endpoint
+    API health check endpoint
     
     Returns:
         HealthCheckResponse: Basic health status
