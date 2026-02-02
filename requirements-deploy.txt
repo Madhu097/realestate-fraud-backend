@@ -5,7 +5,7 @@
 # CORE FRAMEWORK (Required)
 # ============================================================
 fastapi==0.109.0
-uvicorn[standard]==0.27.0
+uvicorn==0.27.0
 python-multipart==0.0.6
 
 # Pydantic for data validation
@@ -23,21 +23,9 @@ sqlalchemy==2.0.25
 python-dotenv==1.0.0
 
 # ============================================================
-# DATA PROCESSING (Lightweight alternatives)
-# ============================================================
-# Using built-in Python instead of pandas/numpy for free tier
-# Heavy ML libraries removed to work on free tier
-
-# ============================================================
 # HTTP & API CLIENTS (Required)
 # ============================================================
 httpx==0.26.0
-requests==2.31.0
-
-# ============================================================
-# IMAGE PROCESSING (Lightweight)
-# ============================================================
-Pillow==10.2.0
 
 # ============================================================
 # UTILITIES (Required)
