@@ -109,9 +109,11 @@ app.include_router(
     summary="Root endpoint",
     description="Simple root endpoint for uptime monitoring"
 )
+@app.head("/")
 async def root():
     """
     Root endpoint - Simple response for monitoring services
+    Supports both GET and HEAD methods for uptime monitoring
     
     Returns:
         dict: Simple status message
@@ -130,6 +132,7 @@ async def root():
     summary="API health check",
     description="Returns the basic health status of the API"
 )
+@app.head("/api")
 async def api_health_check() -> HealthCheckResponse:
     """
     API health check endpoint
@@ -152,6 +155,7 @@ async def api_health_check() -> HealthCheckResponse:
     tags=["Health Check"],
     summary="Detailed health check",
     description="Returns detailed health status with available endpoints"
+@app.head("/health")
 )
 async def detailed_health_check() -> DetailedHealthCheckResponse:
     """
