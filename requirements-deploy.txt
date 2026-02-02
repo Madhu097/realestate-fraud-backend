@@ -31,3 +31,11 @@ httpx==0.27.2
 # UTILITIES (Required)
 # ============================================================
 aiofiles==24.1.0
+
+# ============================================================
+# ML LIBRARIES (Compatible versions with wheels)
+# ============================================================
+# Using versions that have pre-built wheels for Python 3.11
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.2
