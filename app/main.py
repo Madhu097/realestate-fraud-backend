@@ -43,11 +43,17 @@ app = FastAPI(
 # ============================================================
 
 # CORS Middleware
+# Allow specific origins for production and development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.get_cors_origins,
-    allow_credentials=True,
-    allow_methods=["*"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "https://realestate-fraud-frontend.vercel.app",
+        "https://*.vercel.app",  # Allow all Vercel preview deployments
+    ],
+    allow_credentials=False,  # Keep False for security
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
     expose_headers=["*"],
     max_age=3600,  # Cache preflight requests for 1 hour

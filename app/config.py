@@ -32,6 +32,8 @@ class AppConstants:
         "http://127.0.0.1:3000",  # Alternative localhost
         "http://localhost:8000",  # Backend itself (for testing)
         "http://127.0.0.1:8000",  # Backend alternative
+        "https://realestate-fraud-frontend.vercel.app",  # Vercel production
+        "https://*.vercel.app",  # All Vercel preview deployments
     ]
     
     # File Upload Configuration
