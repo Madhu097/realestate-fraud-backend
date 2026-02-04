@@ -15,7 +15,7 @@ from app.exceptions import (
     validation_exception_handler,
     general_exception_handler
 )
-from app.routers import analyze, image_upload, image_fraud_analysis, history, websocket
+from app.routers import analyze, ml_analyze, image_upload, image_fraud_analysis, history, websocket
 from app.database import engine
 from app import models
 
@@ -49,6 +49,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:3000",
+        "http://127.0.0.1:5173",
+        "http://127.0.0.1:3000",
         "https://realestate-fraud-frontend.vercel.app",
         "https://*.vercel.app",  # Allow all Vercel preview deployments
     ],
@@ -78,6 +80,12 @@ app.include_router(
     analyze.router,
     prefix=AppConstants.API_PREFIX,
     tags=["Fraud Analysis"]
+)
+
+app.include_router(
+    ml_analyze.router,
+    prefix=AppConstants.API_PREFIX,
+    tags=["ML Bulk Analysis"]
 )
 
 app.include_router(
